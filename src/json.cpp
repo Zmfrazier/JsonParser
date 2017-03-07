@@ -218,11 +218,27 @@ void countAllTypes(std::vector<Value *> vec)
     std::cout << "Number of " << strings << std::endl;
     std::cout << "Number of " << numbers << std::endl;
     std::cout << "Number of " << bools << std::endl;
-    std::cout << "Number of " << null << std::endl;
+    std::cout << "Number of " << nulls << std::endl;
+}
+
+void getWeight(std::vector<Value*> vec)
+{
+    int weight = 0;
+    for(auto a: vec)
+    {
+        weight += a->getWeight();
+    }
+    std::cout << "Weight: " << weight << std::endl;
 }
 
 int main(){
 
+    std::string json;
+    std::string line;
+    while(getline(std::cin, line)) { json.append(line); }
+    parseJson(json);
 
+    countAllTypes(nodeVector);
+    getWeight(nodeVector);
 
 }
