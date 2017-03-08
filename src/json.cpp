@@ -19,7 +19,6 @@ void parseWhiteSpace(const char*& front, const char* end) {
 }
 
 
-//--------------------------------------------------------------------------------------------------
 std::pair<std::string, Value*> parseJsonPair(const char*& first, const char* last) {
     Value *key = parseJsonValue(first, last);
 
@@ -56,7 +55,6 @@ Value* parseJsonObject(const char*& front, const char* end){
     return object;
 }
 
-//--------------------------------------------------------------------------------------------------
 // Parse array
 Value* parseJsonArray(const char*& front, const char* end) {
     front++; 
@@ -82,7 +80,6 @@ Value* parseJsonArray(const char*& front, const char* end) {
     return a;
 }
 
-//--------------------------------------------------------------------------------------------------
 // Parse String
 Value* parseJsonString(const char*& front, const char* end) {
     const char* init = front++; 
@@ -104,7 +101,6 @@ Value* parseJsonString(const char*& front, const char* end) {
     return str;
 }
 
-//--------------------------------------------------------------------------------------------------
 // Parse numbers
 Value* parseJsonNumber(const char*& front, const char* end) {
     const char* i = front++;
@@ -116,7 +112,6 @@ Value* parseJsonNumber(const char*& front, const char* end) {
     return num;
 }
 
-//--------------------------------------------------------------------------------------------------
 // Parse null
 Value* parseJsonNull(const char*& front, const char* end) {
     Null *n = new Null(); 
@@ -129,7 +124,6 @@ Value* parseJsonNull(const char*& front, const char* end) {
     return n;
 }
 
-//--------------------------------------------------------------------------------------------------
 // Parse bool
 Value* parseJsonBoolean(const char*& front, const char* end) {
     Bool *b = new Bool();
@@ -148,7 +142,6 @@ Value* parseJsonBoolean(const char*& front, const char* end) {
 }
 
 
-//--------------------------------------------------------------------------------------------------
 Value* parseJsonValue(const char*& front, const char* end) {
     parseWhiteSpace(front, end);
     switch(*front) {
